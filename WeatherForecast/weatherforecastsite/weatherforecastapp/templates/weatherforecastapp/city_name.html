@@ -1,0 +1,30 @@
+{% extends "weatherforecastapp/base.html" %}
+{% load static %}
+
+{% block content %}
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Enter City Name</button>
+    </form>
+    {% for daily in daily_dict %}
+    <div class="list_forecast">
+        <ul>
+            <li>Дата: {{ daily.date }}</li>
+            <li>Максимальная температура: {{ daily.temperature_2m_max }}</li>
+            <li>Минимальная температура: {{ daily.temperature_2m_min }}</li>
+            <li>Время осадков: {{ daily.precipitation_hours }}</li>
+            <li>Вероятность осадков: {{ daily.precipitation_probability_max }}</li>
+            <li>Максимальная скорость ветра: {{ daily.wind_speed_10m_max }}</li>
+            <li>Максимальные порывы ветра: {{ daily.wind_gusts_10m_max }}</li>
+            <li>Преобладающее направление ветра: {{ daily.wind_direction_10m_dominant }}</li>
+        </ul>
+    </div>
+    {% endfor %}
+{% endblock %}
+
+
+
+
+
+

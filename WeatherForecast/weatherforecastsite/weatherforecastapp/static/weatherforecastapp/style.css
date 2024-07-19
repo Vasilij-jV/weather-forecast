@@ -1,0 +1,11 @@
+body {
+    color: #ff0000;
+    font-size: 20px;
+}
+
+.list_forecast {
+    border: solid 2px #000;
+    width: 400px;
+    margin-top: 20px;
+    color: #0000ff;
+}
